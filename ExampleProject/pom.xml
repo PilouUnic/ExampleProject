@@ -1,0 +1,132 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>fr.application.example</groupId>
+	<artifactId>ExampleProject</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<packaging>war</packaging>
+
+	<!-- L'important de centraliser un max de conf. dans ce fichier est pour 
+		faicilité la portabilité du projet -->
+	<properties>
+		<!-- Liste de valeurs pouvant être utilisée dans le pom.xml example : les 
+			versions -->
+		<!-- Permet definir l'encodage de l'application -->
+		<encoding>UTF-8</encoding>
+		<version.java>1.7</version.java>
+		<version.junit>4.11</version.junit>
+		<slf4j.version>1.6.6</slf4j.version>
+		<logback.version>1.0.7</logback.version>
+		<jstl.version>1.2</jstl.version>
+		<spring.version>3.1.4.RELEASE</spring.version>
+	</properties>
+
+	<!-- Déclaration des dépendances de l'application -->
+	<!-- Aucun numéro de version en dur !!! Passer par des properties (Règles 
+		de bonne conduite) -->
+	<dependencies>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${version.junit}</version>
+			<!-- Permet de définir l'utilité de la dépendance décrite -->
+			<!-- Test ==> uniquement utilisée pour les test -->
+			<!-- Provided ==> Besoin pour compiler mais pas livré avec l'application 
+				(livré par un service tiers comme par exemple le serveur tomcat) Par défaut 
+				on est en compile -->
+			<scope>test</scope>
+		</dependency>
+
+		<!-- Spring all dependencies -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>cglib</groupId>
+			<artifactId>cglib</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+
+
+
+
+
+		<!-- Dépendance pour faire du spring TEST -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${slf4j.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-classic</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>ch.qos.logback</groupId>
+			<artifactId>logback-core</artifactId>
+			<version>${logback.version}</version>
+		</dependency>
+
+		<!-- Web -->
+		<dependency>
+			<groupId>jstl</groupId>
+			<artifactId>jstl</artifactId>
+			<version>${jstl.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>dom4j</groupId>
+			<artifactId>dom4j</artifactId>
+			<version>1.6.1</version>
+		</dependency>
+
+	</dependencies>
+
+	<!-- Paramètrage du Build, l'objectif est de se désolidariser le plus possible 
+		de l'IDE. De ce fait n'importe qui voulant compiler le projet n'aura théoriquement 
+		aucun soucis -->
+	<build>
+		<finalName>${project.name}-00.01</finalName>
+		<defaultGoal>clean package install</defaultGoal>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<!-- Permet de paramétrer la version de JAVA utilisée et à utilisée -->
+				<configuration>
+					<!-- Version de java utilisée pour l'écriture du programme -->
+					<source>${version.java}</source>
+					<!-- Version de java utilisée pour la compilation du programme -->
+					<target>${version.java}</target>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+</project>
