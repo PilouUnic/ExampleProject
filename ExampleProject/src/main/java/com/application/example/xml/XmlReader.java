@@ -26,6 +26,14 @@ public class XmlReader {
 	}
 
 	
+	/**
+	 * Chargement d'un fichier XML.
+	 * 
+	 * @param xmlFileToLoad Chemin complet vers un fichier XML.
+	 * @return Un element de type org.jdom2.Element
+	 * @throws JDOMException
+	 * @throws IOException
+	 */
 	public Element loadXmlResource(final File xmlFileToLoad) throws JDOMException, IOException {
 		if(xmlFileToLoad == null) {
 			throw new IllegalArgumentException("The paramter cannot be null.");
