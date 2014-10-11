@@ -1,27 +1,28 @@
 /**
  * 
  */
-package com.application.example.xls;
+package com.application.example.file.csv;
 
 import java.io.IOException;
 import java.util.List;
 
-import com.application.example.xls.exception.XLSLoaderExeption;
+import com.application.example.file.exception.LoaderException;
+import com.application.example.file.xls.entitie.RowElement;
 
 /**
  * @author AURELIEN
  *
  */
-public interface ExcelGenerator {
+public interface ICsvGenerator {
 
 	/**
-	 * Méthode qui ajoute une liste d'objet à un CSV.
+	 * Méthode qui ajoute une liste d'objet à un tableau excel.
 	 * 
 	 * @param aList
 	 *            the a list
 	 * @return the integer
 	 */
-	public abstract Integer add(List<Object> aList);
+	public Integer add(List<RowElement> aList);
 
 	/**
 	 * Write.
@@ -29,12 +30,12 @@ public interface ExcelGenerator {
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-	public abstract void write() throws XLSLoaderExeption;
+	public void write() throws LoaderException;
 
 	/**
 	 * Méthode qui permet la taille totale du fichier passé en parametre
 	 * 
 	 * @return
 	 */
-	public abstract Integer getMaxRowBeforeAdd();
+	public Integer getMaxRowBeforeAdd();
 }

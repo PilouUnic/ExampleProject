@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.application.example.xml;
+package com.application.example.file.xml;
 
 import java.io.File;
 import java.io.IOException;

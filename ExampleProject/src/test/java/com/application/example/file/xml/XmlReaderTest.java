@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.application.example.xml;
+package com.application.example.file.xml;
 
 import java.io.File;
 import java.io.IOException;
@@ -18,6 +18,8 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import com.application.example.file.xml.XmlReader;
 
 /**
  * @author admin

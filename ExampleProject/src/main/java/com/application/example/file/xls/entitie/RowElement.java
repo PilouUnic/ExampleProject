@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.application.example.xls.entitie;
+package com.application.example.file.xls.entitie;
 
 import java.io.Serializable;
 import java.util.List;

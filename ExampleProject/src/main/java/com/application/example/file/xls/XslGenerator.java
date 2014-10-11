@@ -1,19 +1,15 @@
-/**
- * 
- */
-package com.application.example.xls;
+package com.application.example.file.xls;
 
 import java.io.IOException;
 import java.util.List;
 
-import com.application.example.xls.entitie.RowElement;
-import com.application.example.xls.exception.XLSLoaderExeption;
+import com.application.example.file.exception.LoaderException;
+
 
 /**
- * @author AURELIEN
- *
+ * The Interface IXlsGenerator.
  */
-public interface ICSVGenerator {
+public interface XslGenerator {
 
 	/**
 	 * Méthode qui ajoute une liste d'objet à un tableau excel.
@@ -22,7 +18,7 @@ public interface ICSVGenerator {
 	 *            the a list
 	 * @return the integer
 	 */
-	public Integer add(List<RowElement> aList);
+	public Integer add(List<Object> aList);
 
 	/**
 	 * Write.
@@ -30,7 +26,7 @@ public interface ICSVGenerator {
 	 * @throws IOException
 	 *             Signals that an I/O exception has occurred.
 	 */
-	public void write() throws XLSLoaderExeption;
+	public void write() throws LoaderException;
 
 	/**
 	 * Méthode qui permet la taille totale du fichier passé en parametre
@@ -38,4 +34,5 @@ public interface ICSVGenerator {
 	 * @return
 	 */
 	public Integer getMaxRowBeforeAdd();
+
 }

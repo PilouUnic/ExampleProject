@@ -1,20 +1,20 @@
 /**
  * 
  */
-package com.application.example.xls.impl;
+package com.application.example.csv.impl;
 
 import java.io.File;
 import java.util.List;
 
-import com.application.example.xls.ICSVGenerator;
-import com.application.example.xls.entitie.RowElement;
-import com.application.example.xls.exception.XLSLoaderExeption;
+import com.application.example.file.csv.ICsvGenerator;
+import com.application.example.file.exception.LoaderException;
+import com.application.example.file.xls.entitie.RowElement;
 
 /**
  * @author AURELIEN
  *
  */
-public abstract class CSVGeneratorImpl implements ICSVGenerator {
+public abstract class CsvGeneratorImpl implements ICsvGenerator {
 	
 	/** The xls file. */
 	private transient File csvFile = null;
@@ -25,7 +25,7 @@ public abstract class CSVGeneratorImpl implements ICSVGenerator {
 	/**
 	 * 
 	 */
-	public CSVGeneratorImpl() {
+	public CsvGeneratorImpl() {
 		// TODO Auto-generated constructor stub
 	}
 
@@ -42,7 +42,7 @@ public abstract class CSVGeneratorImpl implements ICSVGenerator {
 	 * @see fr.reactis.handler.csv.CSVGenerator#write()
 	 */
 	@Override
-	public void write() throws XLSLoaderExeption {
+	public void write() throws LoaderException {
 		// TODO Auto-generated method stub
 
 	}

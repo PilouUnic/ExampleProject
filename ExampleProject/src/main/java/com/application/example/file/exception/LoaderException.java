@@ -1,13 +1,13 @@
 /**
  * 
  */
-package com.application.example.xls.exception;
+package com.application.example.file.exception;
 
 /**
  * @author AURELIEN
  *
  */
-public class XLSLoaderExeption extends LoaderException {
+public class LoaderException extends Exception {
 
 	/**
 	 * 
@@ -17,14 +17,14 @@ public class XLSLoaderExeption extends LoaderException {
 	/**
 	 * 
 	 */
-	public XLSLoaderExeption() {
+	public LoaderException() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/**
 	 * @param arg0
 	 */
-	public XLSLoaderExeption(String arg0) {
+	public LoaderException(String arg0) {
 		super(arg0);
 		// TODO Auto-generated constructor stub
 	}
@@ -32,7 +32,7 @@ public class XLSLoaderExeption extends LoaderException {
 	/**
 	 * @param arg0
 	 */
-	public XLSLoaderExeption(Throwable arg0) {
+	public LoaderException(Throwable arg0) {
 		super(arg0);
 		// TODO Auto-generated constructor stub
 	}
@@ -41,7 +41,7 @@ public class XLSLoaderExeption extends LoaderException {
 	 * @param arg0
 	 * @param arg1
 	 */
-	public XLSLoaderExeption(String arg0, Throwable arg1) {
+	public LoaderException(String arg0, Throwable arg1) {
 		super(arg0, arg1);
 		// TODO Auto-generated constructor stub
 	}
@@ -52,10 +52,10 @@ public class XLSLoaderExeption extends LoaderException {
 	 * @param arg2
 	 * @param arg3
 	 */
-	public XLSLoaderExeption(String arg0, Throwable arg1, boolean arg2,
+	public LoaderException(String arg0, Throwable arg1, boolean arg2,
 			boolean arg3) {
 		super(arg0, arg1, arg2, arg3);
 		// TODO Auto-generated constructor stub
 	}
-
 }
+

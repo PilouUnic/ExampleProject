@@ -1,18 +1,18 @@
 /**
  * 
  */
-package com.application.example.xls;
+package com.application.example.file.xls;
 
-import com.application.example.xls.exception.LoaderException;
+import com.application.example.file.exception.LoaderException;
 
 
 /**
  * @author AURELIEN
  *
  */
-public interface ICSVLoader {
+public interface IXlsLoader {
 	
 	void loadFileWithHeader() throws LoaderException;
-	
+
 	void loadFileWithoutHeader() throws LoaderException;
 }
