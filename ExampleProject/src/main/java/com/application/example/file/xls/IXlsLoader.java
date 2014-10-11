@@ -3,7 +3,11 @@
  */
 package com.application.example.file.xls;
 
+import java.io.File;
+import java.util.List;
+
 import com.application.example.file.exception.LoaderException;
+import com.application.example.file.xls.entitie.RowElement;
 
 
 /**
@@ -12,7 +16,6 @@ import com.application.example.file.exception.LoaderException;
  */
 public interface IXlsLoader {
 	
-	void loadFileWithHeader() throws LoaderException;
-
-	void loadFileWithoutHeader() throws LoaderException;
+	List<RowElement> loadFileWithHeader(final File fileToLoad) throws LoaderException;
+	List<RowElement>  loadFileWithoutHeader(final File fileToLoad) throws LoaderException;
 }

@@ -37,7 +37,7 @@ public class CsvLoaderTest {
 	
 
 	/**
-	 * Test method for {@link com.application.example.csv.impl.CsvLoaderImpl#loadFileWithHeader()}.
+	 * Test method for {@link com.application.example.file.csv.impl.CsvLoaderImpl#loadFileWithHeader()}.
 	 * @throws LoaderException 
 	 */
 	@Test(expected=IllegalArgumentException.class)
@@ -48,7 +48,7 @@ public class CsvLoaderTest {
 	}
 	
 	/**
-	 * Test method for {@link com.application.example.csv.impl.CsvLoaderImpl#loadFileWithHeader()}.
+	 * Test method for {@link com.application.example.file.csv.impl.CsvLoaderImpl#loadFileWithHeader()}.
 	 * @throws LoaderException 
 	 */
 	@Test(expected=LoaderException.class)
@@ -59,7 +59,7 @@ public class CsvLoaderTest {
 	}
 	
 	/**
-	 * Test method for {@link com.application.example.csv.impl.CsvLoaderImpl#loadFileWithHeader()}.
+	 * Test method for {@link com.application.example.file.csv.impl.CsvLoaderImpl#loadFileWithHeader()}.
 	 * @throws LoaderException 
 	 */
 	@Test
@@ -71,7 +71,7 @@ public class CsvLoaderTest {
 	}
 
 	/**
-	 * Test method for {@link com.application.example.csv.impl.CsvLoaderImpl#loadFileWithoutHeader()}.
+	 * Test method for {@link com.application.example.file.csv.impl.CsvLoaderImpl#loadFileWithoutHeader()}.
 	 */
 	@Test(expected=IllegalArgumentException.class)
 	public void testLoadFileWithoutHeaderWithoutNullArgument() throws LoaderException {
@@ -81,7 +81,7 @@ public class CsvLoaderTest {
 	}
 	
 	/**
-	 * Test method for {@link com.application.example.csv.impl.CsvLoaderImpl#loadFileWithoutHeader()}.
+	 * Test method for {@link com.application.example.file.csv.impl.CsvLoaderImpl#loadFileWithoutHeader()}.
 	 */
 	@Test(expected=LoaderException.class)
 	public void testLoadFileWithoutHeaderWithNotFoundFile() throws LoaderException {
@@ -91,7 +91,7 @@ public class CsvLoaderTest {
 	}
 	
 	/**
-	 * Test method for {@link com.application.example.csv.impl.CsvLoaderImpl#loadFileWithHeader()}.
+	 * Test method for {@link com.application.example.file.csv.impl.CsvLoaderImpl#loadFileWithHeader()}.
 	 * @throws LoaderException 
 	 */
 	@Test
