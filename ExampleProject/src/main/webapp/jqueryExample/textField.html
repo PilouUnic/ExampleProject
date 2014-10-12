@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+<link href="js/jquery-ui.css" rel="stylesheet">
+<script src="js/jquery-2.1.1.min.js"></script>
+<script src="js/jquery-ui.js"></script>
+</head>
+
+<style>
+.alnright {
+	text-align: right;
+}
+</style>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$("#textField").keyup(function() {
+			alert(this['textField'].value);
+		});
+		$('#numeric').bind('copy paste', function (e) {
+			alert('est');
+	    });
+	})
+	
+	function isNumberKey(evt){
+	    var charCode = (evt.which) ? evt.which : event.keyCode
+	    if (charCode > 31 && (charCode < 48 || charCode > 57))
+	        return false;
+	    return true;
+	} 
+</script>
+
+<body>
+
+
+	<table>
+		<tr>
+			<td class="alnright"><label for="simpleTextField">Simple
+					text field : </label></td>
+			<td><input type="text" id="textField" /></td>
+		</tr>
+		<tr>
+			<td class="alnright"><label for="passTextField">Password
+					text field : </label></td>
+			<td><input type="password" id="passwordField" /></td>
+		</tr>
+		<tr>
+			<td class="alnright"><label for="limiTextField">Limited
+					text field : </label></td>
+			<td><input type="text" id="limitedTextField" maxlength="10" /></td>
+		</tr>
+		<tr>
+			<td class="alnright"><label for="numTextField">Numeric
+					text field : </label></td>
+			<td><input type="text" id="numeric"
+				onkeypress="return isNumberKey(event)"
+				onpast="return isNumberKey(event)" /></td>
+		</tr>
+	</table>
+
+
+</body>
+</html>

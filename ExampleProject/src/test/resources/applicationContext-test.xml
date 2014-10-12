@@ -6,9 +6,18 @@
            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
 
 	<context:component-scan base-package="com.application.example" />
+	
+	<!-- Gestion des Thread avec Spring -->
+	<bean id="taskExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="5" />
+		<property name="maxPoolSize" value="10" />
+		<property name="queueCapacity" value="25" />
+	</bean>
 
 	<!-- Permet de dire a spring d'importer et d'activer certaines configurations -->
 	<import resource="webmvc-config-test.xml" />
+	<import resource="data-access-config-test.xml" />
 	<import resource="i18n-conf-test.xml"/>
 
 </beans>

@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
 
@@ -87,6 +88,7 @@ public class XlsLoaderImpl implements IXlsLoader  {
 					if(entry != null && !entry.isEmpty()) {
 						rowElement.setContentElements(entry);
 					}
+					logger.debug("memorizing row: " + Arrays.asList(entry).toString());
 					elementList.add(rowElement);
 					i++;
 				}
@@ -127,7 +129,9 @@ public class XlsLoaderImpl implements IXlsLoader  {
 				boolean firstRow = true;
 				while (rowIterator.hasNext()) 
 				{
-					if(!firstRow) {
+					if(firstRow) {
+						rowIterator.next();
+					} else  {
 						Row row = rowIterator.next();
 						RowElement rowElement = new RowElement();
 						rowElement.setRowType(RowElement.RowType.CONTENT);
@@ -145,6 +149,7 @@ public class XlsLoaderImpl implements IXlsLoader  {
 						if(entry != null && !entry.isEmpty()) {
 							rowElement.setContentElements(entry);
 						}
+						logger.debug("memorizing row: " + Arrays.asList(entry).toString());
 						elementList.add(rowElement);
 					}
 					firstRow = false;

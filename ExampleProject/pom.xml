@@ -1,8 +1,9 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>fr.application.example</groupId>
+	<groupId>com.application.example</groupId>
 	<artifactId>ExampleProject</artifactId>
+	<name>ExampleProject</name>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>war</packaging>
 
@@ -18,7 +19,7 @@
 		<slf4j.version>1.6.6</slf4j.version>
 		<logback.version>1.0.7</logback.version>
 		<jstl.version>1.2</jstl.version>
-		<spring.version>3.1.4.RELEASE</spring.version>
+		<spring.version>4.0.5.RELEASE</spring.version>
 	</properties>
 
 	<!-- Déclaration des dépendances de l'application -->
@@ -53,6 +54,38 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
 			<version>${spring.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-jpa</artifactId>
+			<version>1.6.0.RELEASE</version>
+		</dependency>
+
+		<!-- Hibernate & Validation -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>4.2.6.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.0.1.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+
+		<!-- Database -->
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>5.1.22</version>
+			<scope>compile</scope>
 		</dependency>
 
 		<dependency>
@@ -143,7 +176,7 @@
 		de l'IDE. De ce fait n'importe qui voulant compiler le projet n'aura théoriquement 
 		aucun soucis -->
 	<build>
-		<finalName>${project.name}-00.01</finalName>
+		<finalName>ExampleProject</finalName>
 		<defaultGoal>clean package install</defaultGoal>
 		<plugins>
 			<plugin>

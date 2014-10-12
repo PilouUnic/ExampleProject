@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <title>jQuery UI Menu functionality</title>
+      <link href="js/jquery-ui.css" rel="stylesheet">
+      <script src="js/jquery-2.1.1.min.js"></script>
+      <script src="js/jquery-ui.js"></script>
+      <!-- CSS -->
+      <style>
+         .ui-menu {
+            width: 200px;
+         }
+      </style>
+      
+      <!-- Javascript -->
+      <script>
+         $(function() {
+         $( "#menu" ).menu({
+            select : function( event, ui ) {
+               var result = ui.item.text();
+               var url = "";
+               if(result=="Text field") {
+            	   url = "http://localhost:8080/ExampleProject/jqueryExample/textField.html";
+               }
+               $(location).attr('href',url);
+            }
+         });
+       });
+      </script>
+      
+   </head>
+   <body>
+      <ul id="menu">
+         <!-- <li><a href="#">First example code</a></li>  -->
+         <li><a href="#">Text field</a></li>
+      </ul>
+   </body>
+</html>
