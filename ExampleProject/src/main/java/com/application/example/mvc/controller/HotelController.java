@@ -1,5 +1,6 @@
 package com.application.example.mvc.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.validation.Valid;
@@ -10,9 +11,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.application.example.mvc.model.Hotel;
+import com.application.example.mvc.entitie.Hotel;
 import com.application.example.mvc.service.HotelService;
 import com.application.example.mvc.validator.HotelValidator;
 
@@ -22,9 +25,12 @@ public class HotelController {
 
 	@Autowired
 	private HotelService hotelService;
-	
+
 	@Autowired
 	private MessageSource messageSource;
+	
+	private List<Hotel> hotels;
+	private List<String> cities;
 
 	/**
 	 * Init form with an Hotel object which is empty
@@ -60,13 +66,32 @@ public class HotelController {
 		hotelService.save(hotel);
 		return new ModelAndView("redirect:list.do");
 	}
-	
+
 	@RequestMapping(value="/list.do")
-	public ModelAndView hotelList() {
-		List<Hotel> hotels = hotelService.findAll();
-		return new ModelAndView("/pages/hotelList.jsp", "hotels", hotels);
+	public ModelAndView hotelList() {	
+		hotels = new ArrayList<Hotel>();
+		cities = new ArrayList<String>();
+		hotels = hotelService.findAll();
+		ModelAndView mav = new ModelAndView("/pages/hotelList.jsp");
+		mav.addObject("hotels", hotels);
+		mav.addObject("cities", cities);
+		return mav;
 	}
-	
+
+	@RequestMapping(value="/getCitiesByHotel", method = RequestMethod.GET)
+	public @ResponseBody List<String> getCities(@RequestParam(value = "hotelId") String hotelId) {  
+
+		cities.clear();
+		if("W Hotel".equals(hotelId)) {
+			cities.add("Avignon");
+			cities.add("Aix en Provence");
+			cities.add("Lyon");
+			cities.add("Paris");
+		} 
+
+		return cities;  
+	}
+
 	@RequestMapping(value="/delete.do")	
 	public ModelAndView delete(Long id) {
 		hotelService.delete(id);

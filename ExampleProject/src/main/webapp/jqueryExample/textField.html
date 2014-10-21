@@ -3,33 +3,79 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
-<link href="js/jquery-ui.css" rel="stylesheet">
-<script src="js/jquery-2.1.1.min.js"></script>
-<script src="js/jquery-ui.js"></script>
+
 </head>
+<link href="../js/jquery-ui.css" rel="stylesheet">
+<script src="../js/jquery-2.1.1.min.js"></script>
+<script src="../js/jquery-ui.js"></script>
 
 <style>
 .alnright {
 	text-align: right;
 }
+
+.ui-widget {
+	font-family: Trebuchet MS, Tahoma, Verdana, Arial, sans-serif;
+	font-size: 11px;
+}
+
+.ui-datepicker-trigger {
+	cursor: pointer;
+	position: relative;
+	top: 2px;
+}
+
+#fieldInTable {
+	display: table-cell;
+	vertical-align: bottom;
+}
+
+.cellContent {
+	height: 100%;
+}
 </style>
 
 <script type="text/javascript">
-	$(document).ready(function() {
-		$("#textField").keyup(function() {
-			alert(this['textField'].value);
-		});
-		$('#numeric').bind('copy paste', function (e) {
-			alert('est');
+
+	$(function(){
+		var max = 0;
+	    $("label").each(function(){
+	        if ($(this).width() > max)
+	            max = $(this).width();    
 	    });
-	})
-	
-	function isNumberKey(evt){
-	    var charCode = (evt.which) ? evt.which : event.keyCode
-	    if (charCode > 31 && (charCode < 48 || charCode > 57))
-	        return false;
-	    return true;
-	} 
+	    $("label").width(max);
+		
+		$("#textField").keypress(function (e) {
+			  alert('hkjqs');
+		});
+		
+	  //called when key is pressed in textbox
+	  $("#numericTextField").keypress(function (e) {
+	     //if the letter is not digit then display error and don't type anything
+	     if (e.which != 8 && e.which != 0 && (e.which < 48 || e.which > 57)) {
+	     	return false;
+	   	 }
+	   });
+		
+	  $( "#select" ).selectmenu({ height:12 });
+	  $('#select').on('change', function() {
+		  alert( this.value ); // or $(this).val()
+		});
+	  
+	  $( "#datepicker" ).datepicker({
+	      showOn: "button",
+	      buttonImage: "/ExampleProject/images/calendar.png",
+	      buttonImageOnly: true,
+	      buttonText: "Select date"
+	    });
+	  
+		  $( "input[type=button], a, button" )
+	      .button()
+	      .click(function( event ) {
+	        alert('Click on simple button');
+	      });
+	});
+
 </script>
 
 <body>
@@ -54,9 +100,58 @@
 		<tr>
 			<td class="alnright"><label for="numTextField">Numeric
 					text field : </label></td>
-			<td><input type="text" id="numeric"
-				onkeypress="return isNumberKey(event)"
-				onpast="return isNumberKey(event)" /></td>
+			<td><input type="text" name="numericTextField"
+				id="numericTextField" /></td>
+		</tr>
+		<tr>
+			<td class="alnright"><label for="numTextField">Date
+					picker : </label></td>
+			<td>
+				<div class="fieldInTable">
+					<input style="width: 77%;" type="text" id="datepicker">
+				</div>
+			</td>
+		</tr>
+		<tr>
+			<td class="alnright"><label for="comboboxField">Combobox
+					: </label></td>
+			<td><div class="cellContent">
+					<select style="height: 5%; width: 250 px;" id="select">
+						<option value="">Select one...</option>
+						<option value="ActionScript">ActionScript</option>
+						<option value="AppleScript">AppleScript</option>
+						<option value="Asp">Asp</option>
+						<option value="BASIC">BASIC</option>
+						<option value="C">C</option>
+						<option value="C++">C++</option>
+						<option value="Clojure">Clojure</option>
+						<option value="COBOL">COBOL</option>
+						<option value="ColdFusion">ColdFusion</option>
+						<option value="Erlang">Erlang</option>
+						<option value="Fortran">Fortran</option>
+						<option value="Groovy">Groovy</option>
+						<option value="Haskell">Haskell</option>
+						<option value="Java">Java</option>
+						<option value="JavaScript">JavaScript</option>
+						<option value="Lisp">Lisp</option>
+						<option value="Perl">Perl</option>
+						<option value="PHP">PHP</option>
+						<option value="Python">Python</option>
+						<option value="Ruby">Ruby</option>
+						<option value="Scala">Scala</option>
+						<option value="Scheme">Scheme</option>
+					</select>
+				</div></td>
+		</tr>
+		<tr>
+			<td class="alnright"><label for="lblButton">Simple
+					button : </label></td>
+			<td>
+				<div class="fieldInTable">
+					<input style="height: 5%; width: 250 px;" id="idSimpleButton"
+						type="button" value="Click me ...">
+				</div>
+			</td>
 		</tr>
 	</table>
 

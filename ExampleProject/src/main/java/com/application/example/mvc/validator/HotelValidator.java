@@ -3,7 +3,7 @@ package com.application.example.mvc.validator;
 import org.springframework.validation.Errors;
 import org.springframework.validation.Validator;
 
-import com.application.example.mvc.model.Hotel;
+import com.application.example.mvc.entitie.Hotel;
 
 public class HotelValidator implements Validator {
 

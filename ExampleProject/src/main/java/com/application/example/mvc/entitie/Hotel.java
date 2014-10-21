@@ -1,4 +1,4 @@
-package com.application.example.mvc.model;
+package com.application.example.mvc.entitie;
 
 import java.io.Serializable;
 import java.math.BigDecimal;

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.application.example.mvc.dao.HotelDao;
-import com.application.example.mvc.model.Hotel;
+import com.application.example.mvc.entitie.Hotel;
 
 @Service
 public class HotelService {
