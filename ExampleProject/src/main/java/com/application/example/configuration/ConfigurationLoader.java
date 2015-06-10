@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
  * @author admin
  *
  */
-@Component
+//@Component
 public class ConfigurationLoader {
 	
 	@Resource(name = "configurationBeanLoader")

@@ -28,7 +28,7 @@ public class CsvLoaderTest {
 	
 	static Logger logger = LoggerFactory.getLogger(CsvLoaderTest.class);
 	
-	final File csvFileTloLoad = new File("F:\\resources\\csvFileExample.csv");
+	final File csvFileTloLoad = new File("C:\\DEV\\DATA\\XML\\example.csv");
 	final File badCsvFileTloLoad = new File("");
 	
 	@Autowired
@@ -98,6 +98,18 @@ public class CsvLoaderTest {
 	public void testLoadFileWithoutHeaderWithGoodFile() throws LoaderException {
 		logger.trace("launching 'testLoadFileWithoutHeaderWithGoodFile' method in 'CsvLoaderTest.java'");
 		List<RowElement> result = iCsvLoader.loadFileWithoutHeader(csvFileTloLoad);		
+		Assert.assertTrue(result != null && !result.isEmpty());
+		logger.trace("end of 'testLoadFileWithoutHeaderWithGoodFile' method in 'CsvLoaderTest.java'");
+	}
+	
+	/**
+	 * Test method for {@link com.application.example.file.csv.impl.CsvLoaderImpl#loadFileWithHeader()}.
+	 * @throws LoaderException 
+	 */
+	@Test
+	public void testLoad() throws LoaderException {
+		logger.trace("launching 'testLoadFileWithoutHeaderWithGoodFile' method in 'CsvLoaderTest.java'");
+		List<RowElement> result = iCsvLoader.loadFile(csvFileTloLoad);		
 		Assert.assertTrue(result != null && !result.isEmpty());
 		logger.trace("end of 'testLoadFileWithoutHeaderWithGoodFile' method in 'CsvLoaderTest.java'");
 	}

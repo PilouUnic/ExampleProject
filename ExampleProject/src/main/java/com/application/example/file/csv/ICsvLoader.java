@@ -18,4 +18,5 @@ public interface ICsvLoader {
 	
 	List<RowElement> loadFileWithHeader(final File fileToLoad) throws LoaderException;	
 	List<RowElement>  loadFileWithoutHeader(final File fileToLoad) throws LoaderException;
+	List<RowElement>  loadFile(final File fileToLoad) throws LoaderException;
 }
